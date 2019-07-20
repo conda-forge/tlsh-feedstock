@@ -65,13 +65,10 @@ outputs:
         - {{ pin_subpackage('libtlsh', exact=True) }}
         - python
     test:
-      source_files:
-        - Testing
-        - py_ext
       imports:
         - tlsh
-      commands:
-        - echo "TODO: restore the tests when python_test.sh works"  
+        # commands:
+        # - echo "TODO: restore the tests when python_test.sh works"
         # cd Testing && sh python_test.sh
   - name: tlsh-tools
     script: install-tlsh-tools.sh
