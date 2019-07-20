@@ -1,7 +1,6 @@
 {% set name = "tlsh" %}
 {% set version = "3.13.1" %}
 
-
 package:
   name: {{ name|lower }}
   version: {{ version }}
