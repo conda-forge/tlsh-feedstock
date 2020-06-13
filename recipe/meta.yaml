@@ -65,9 +65,12 @@ outputs:
         - {{ pin_subpackage('libtlsh', exact=True) }}
         - python
     test:
+      requires:
+        - pip
       imports:
         - tlsh
-        # commands:
+      commands:
+        - python -m pip check
         # - echo "TODO: restore the tests when python_test.sh works"
         # cd Testing && sh python_test.sh
   - name: tlsh-tools
