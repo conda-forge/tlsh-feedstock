@@ -1,5 +1,5 @@
 {% set name = "tlsh" %}
-{% set version = "3.19.1" %}
+{% set version = "4.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/trendmicro/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: a8a7972d8bafb5fd66bd597b72037356dd9882e71a7e9b5f37281751a99ce686
+  sha256: ef90e81a5a400a7bc3074f126c133b88f19820a09ead8d457c2aacd4669178ba
   patches:
     - make.patch
 
@@ -65,9 +65,12 @@ outputs:
         - {{ pin_subpackage('libtlsh', exact=True) }}
         - python
     test:
+      requires:
+        - pip
       imports:
         - tlsh
-        # commands:
+      commands:
+        - python -m pip check
         # - echo "TODO: restore the tests when python_test.sh works"
         # cd Testing && sh python_test.sh
   - name: tlsh-tools
@@ -95,14 +98,14 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  summary: 'TLSH is a fuzzy matching library.'
+  summary: TLSH is a fuzzy matching library.
   description: |
-     Given a byte stream with a minimum length of 50 bytes TLSH generates a
-     hash value which can be used for similarity comparisons. Similar objects
-     will have similar hash values which allows for the detection of similar
-     objects by comparing their hash values. Note that the byte stream should
-     have a sufficient amount of complexity. For example, a byte stream of
-     identical bytes will not generate a hash value.
+    Given a byte stream with a minimum length of 50 bytes TLSH generates a
+    hash value which can be used for similarity comparisons. Similar objects
+    will have similar hash values which allows for the detection of similar
+    objects by comparing their hash values. Note that the byte stream should
+    have a sufficient amount of complexity. For example, a byte stream of
+    identical bytes will not generate a hash value.
 
 extra:
   recipe-maintainers:
