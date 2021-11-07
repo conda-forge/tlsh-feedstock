@@ -1,5 +1,5 @@
 {% set name = "tlsh" %}
-{% set version = "4.8.2" %}
+{% set version = "4.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/trendmicro/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 0528294fbb1fe3659db564dd0b7b1b27fc41280a8408e4f7abf7e8b27f7b1ac6
+  sha256: 2f1502ca4697b2c5a3950ad2d5e19102cf977128714f6dfa5b9c6f7e03af6495
   patches:
     - make.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
 requirements:
