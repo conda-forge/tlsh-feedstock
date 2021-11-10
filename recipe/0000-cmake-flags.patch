@@ -1,0 +1,16 @@
+--- make.sh	2021-10-11 00:56:34.000000000 -0500
++++ make.sh.new	2021-11-10 07:51:03.798225329 -0600
+@@ -38,7 +38,12 @@
+ elif [ "$OPTION" = "-shared" ]; then
+ 	mkdir -p build/release
+ 	cd build/release
+-	cmake $CHECKSUM -DTLSH_SHARED_LIBRARY=1 ../..
++	cmake $CHECKSUM -DTLSH_SHARED_LIBRARY=1 ../.. \
++		-DCMAKE_BUILD_TYPE=Release \
++ 		-DCMAKE_PREFIX_PATH=${PREFIX} \
++ 		-DCMAKE_INSTALL_PREFIX=${PREFIX} \
++ 		-DCMAKE_INSTALL_RPATH=${PREFIX}/lib \
++ 		-DCMAKE_EXE_LINKER_FLAGS="-Wl,-rpath,${PREFIX}/lib -L${PREFIX}/lib"
+ else
+ 	mkdir -p build/release
+ 	cd build/release
