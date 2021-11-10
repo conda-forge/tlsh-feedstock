@@ -2,8 +2,7 @@
 set -eux
 
 for c in $(find build -name cmake_install.cmake); do
-    cat $c
-    sed -i "s+/usr/local+${PREFIX}+g" $c
+    python -c "from pathlib import Path; c= Path('$c'); c.write_text(c.read_text().replace('/usr/local', '$PREFIX'))"
 done
 
 cd "${SRC_DIR}/build/release"
