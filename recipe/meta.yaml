@@ -1,4 +1,4 @@
-{% set version = "4.11.0" %}
+{% set version = "4.12.0" %}
 
 package:
   name: tlsh
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/trendmicro/tlsh/archive/{{ version }}.tar.gz
-  sha256: 2f1502ca4697b2c5a3950ad2d5e19102cf977128714f6dfa5b9c6f7e03af6495
+  sha256: 93d206e999d51b25bc800f01c1a88dd632849b1555ca8680264486738f39f3c2
   patches:
     - 0000-cmake-flags.patch
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win]
 
 requirements:
