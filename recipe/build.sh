@@ -23,4 +23,4 @@ cmake .. \
     -DCMAKE_CXX_FLAGS="${CXXFLAGS} ${CPPFLAGS}" \
     -DTLSH_CHECKSUM_1B=1
 
-make install
+make
