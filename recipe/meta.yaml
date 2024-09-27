@@ -7,8 +7,6 @@ package:
 source:
   url: https://github.com/trendmicro/tlsh/archive/{{ version }}.tar.gz
   sha256: 93d206e999d51b25bc800f01c1a88dd632849b1555ca8680264486738f39f3c2
-  patches:
-    - 0000-cmake-flags.patch
 
 build:
   number: 0
