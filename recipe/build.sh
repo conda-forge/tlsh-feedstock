@@ -4,7 +4,7 @@ set -eux
 mkdir -p build/release
 
 pushd build/release
-    cmake
+    cmake \
         $CMAKE_ARGS \
         -GNinja \
         -DCMAKE_BUILD_TYPE=Release \
