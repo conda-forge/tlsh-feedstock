@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/trendmicro/tlsh/archive/{{ version }}.tar.gz
   sha256: 93d206e999d51b25bc800f01c1a88dd632849b1555ca8680264486738f39f3c2
+  patches:
+    - 0000-fix-cmake-flags.txt
 
 build:
   number: 0
@@ -37,7 +39,6 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
-        - sed  # [osx]
     test:
       commands:
         - test -f "${PREFIX}/lib/libtlsh${SHLIB_EXT}"
@@ -84,7 +85,9 @@ outputs:
 about:
   home: https://github.com/trendmicro/tlsh
   license: Apache-2.0 OR BSD-3-Clause
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - NOTICE.txt
   summary: TLSH is a fuzzy matching library.
   description: |
     Given a byte stream with a minimum length of 50 bytes TLSH generates a
