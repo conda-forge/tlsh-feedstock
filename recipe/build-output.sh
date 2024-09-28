@@ -2,9 +2,9 @@
 set -eux
 
 if [[ "${PKG_NAME}" == "libtlsh" ]]; then
-    mkdir -p "${PREFIX}/lib" "${PREFIX}/include"
-    cp -r lib "${PREFIX}/lib/tlsh"
-    cp -r include/* "${PREFIX}/include/"
+    mkdir -p "${PREFIX}/lib" "${PREFIX}/include/tlsh"
+    cp -r lib/libtlsh.* "${PREFIX}/lib/"
+    cp -r include/* "${PREFIX}/include/tlsh"
 elif [[ "${PKG_NAME}" == "tlsh-tools" ]]; then
     mkdir -p "${PREFIX}/bin"
     cp "bin/tlsh_unittest" "${PREFIX}/bin/"
