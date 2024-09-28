@@ -83,8 +83,7 @@ outputs:
 
 about:
   home: https://github.com/trendmicro/tlsh
-  license: Apache-2.0
-  license_family: Apache
+  license: Apache-2.0 OR BSD-3-Clause
   license_file: LICENSE
   summary: TLSH is a fuzzy matching library.
   description: |
