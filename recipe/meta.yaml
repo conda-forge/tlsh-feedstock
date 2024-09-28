@@ -37,6 +37,7 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
+        - sed  # [osx]
     test:
       commands:
         - test -f "${PREFIX}/lib/libtlsh${SHLIB_EXT}"
