@@ -19,6 +19,8 @@ requirements:
     - {{ stdlib('c') }}
     - cmake
     - ninja
+  host:
+    - python
 
 test:
   commands:
