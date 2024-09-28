@@ -18,22 +18,15 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
     - cmake
-    - make
     - ninja
-  host:
-    - pip
-    - python
-    - setuptools
-  run:
-    - python
 
 test:
   commands:
-    - test -f ${CONDA_PREFIX}/lib/libtlsh.${SHLIB_EXT}
+    - echo "tests in subpackages"
 
 outputs:
   - name: libtlsh
-    script: install-libtlsh.sh
+    script: build-output.sh
     build:
       run_exports:
         - {{ pin_subpackage('libtlsh', max_pin='x.x') }}
@@ -42,23 +35,33 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
-        - cmake
-        - make
     test:
       commands:
-        - echo libtlsh tested are during build
-  - name: python-tlsh
-    script: install-python-tlsh.sh
-    build:
-      run_exports:
-        - {{ pin_subpackage('python-tlsh', max_pin='x.x') }}
+        - test -f "${PREFIX}/lib/libtlsh${SHLIB_EXT}"
+
+  - name: tlsh-tools
+    script: build-output.sh
+    test:
+      commands:
+        - tlsh -help
+        - tlsh_unittest -help
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - {{ stdlib('c') }}
-        - cmake
-        - make
+      host:
+        - {{ pin_subpackage('libtlsh', exact=True) }}
+      run:
+        - {{ pin_subpackage('libtlsh', exact=True) }}
+
+  - name: python-tlsh
+    script: build-output.sh
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - {{ stdlib('c') }}
       host:
         - {{ pin_subpackage('libtlsh', exact=True) }}
         - pip
@@ -74,28 +77,6 @@ outputs:
         - tlsh
       commands:
         - pip check
-        # - echo "TODO: restore the tests when python_test.sh works"
-        # cd Testing && sh python_test.sh
-  - name: tlsh-tools
-    script: install-tlsh-tools.sh
-    build:
-      run_exports:
-        - {{ pin_subpackage('libtlsh', max_pin='x.x') }}
-    test:
-      commands:
-        - tlsh --help
-        - tlsh_unittest --help
-    requirements:
-      build:
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - {{ stdlib('c') }}
-        - cmake
-        - make
-      host:
-        - {{ pin_subpackage('libtlsh', exact=True) }}
-      run:
-        - {{ pin_subpackage('libtlsh', exact=True) }}
 
 about:
   home: https://github.com/trendmicro/tlsh
