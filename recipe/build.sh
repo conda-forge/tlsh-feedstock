@@ -9,6 +9,7 @@ cmake ../.. \
     -G Ninja \
     $CMAKE_ARGS \
     -GNinja \
+    -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX:PATH=${PREFIX} \
     -DCMAKE_INSTALL_RPATH=${PREFIX}/lib \
