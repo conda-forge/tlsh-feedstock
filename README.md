@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tlsh-feedstock/
 
 Home: https://github.com/trendmicro/tlsh
 
-Package license: Apache-2.0
+Package license: Apache-2.0 OR BSD-3-Clause
 
 Summary: TLSH is a fuzzy matching library.
 
