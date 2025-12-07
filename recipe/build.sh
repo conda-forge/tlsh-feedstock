@@ -6,7 +6,6 @@ mkdir -p build/release
 cd build/release
 
 cmake ../.. \
-    -G Ninja \
     $CMAKE_ARGS \
     -GNinja \
     -DBUILD_SHARED_LIBS=ON \
