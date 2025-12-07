@@ -19,6 +19,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - {{ stdlib('c') }}
+    - python                              # [target_platform != host_platform]
+    - cross-python_{{ target_platform }}  # [target_platform != host_platform]
     - cmake <4
     - ninja
   host:
