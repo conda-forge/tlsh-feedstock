@@ -52,7 +52,10 @@ outputs:
             - tlsh/*.h
           lib:
             - libtlsh
-            - libtlsh.*
+            - libtlsh.a
+            - libtlsh.so
+            - libtlsh.so.${{ (version | split("."))[0] }}
+            - libtlsh.so.${{ version }}
           strict: true
 
   - inherit: staging
