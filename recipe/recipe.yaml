@@ -52,7 +52,7 @@ outputs:
             - tlsh/*.h
           lib:
             - libtlsh
-            - libtlsh.${{ "dylib" if osx else "a" }}
+            - libtlsh.*
           strict: true
 
   - inherit: staging
