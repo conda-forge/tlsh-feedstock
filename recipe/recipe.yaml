@@ -14,7 +14,7 @@ source:
     patches:
       - 0000-fix-cmake-flags.txt
   - target_directory: py
-    url: https://pypi.org/packages/source/i/py-tlsh/py_tlsh-${{ version }}.tar.gz
+    url: https://pypi.org/packages/source/p/py-tlsh/py_tlsh-${{ version }}.tar.gz
     sha256: a21cb75eb49e9d9237c8c39d2fb310a5c976b3abc6c35c2e405e16c089abad1b
 
 build:
@@ -42,11 +42,18 @@ outputs:
       script:
         file: build-output.sh
     requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
       run_exports:
         - ${{ pin_subpackage('libtlsh', upper_bound='x.x') }}
     tests:
       - package_contents:
           lib:
+            - libtlsh
+            - libtlsh.${{ "a" if linux else "dylib" }}
+          include:
             - libtlsh
           strict: true
 
