@@ -35,7 +35,8 @@ outputs:
       script:
         file: build-staging
 
-  - package:
+  - inherit: staging
+    package:
       name: libtlsh
     build:
       script:
@@ -49,7 +50,8 @@ outputs:
             - libtlsh
           strict: true
 
-  - package:
+  - inherit: staging
+    package:
       name: tlsh-tools
     build:
       script:
