@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eux
 
+cd src
+
 mkdir -p build/release
 
 cd build/release
