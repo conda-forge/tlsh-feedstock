@@ -43,18 +43,16 @@ outputs:
         file: build-output.sh
     requirements:
       build:
-        - ${{ compiler('c') }}
-        - ${{ compiler('cxx') }}
         - ${{ stdlib('c') }}
       run_exports:
         - ${{ pin_subpackage('libtlsh', upper_bound='x.x') }}
     tests:
       - package_contents:
+          include:
+            - tlsh/*.h
           lib:
             - libtlsh
-            - libtlsh.${{ "a" if linux else "dylib" }}
-          include:
-            - libtlsh
+            - libtlsh.${{ "dylib" if osx else "a" }}
           strict: true
 
   - inherit: staging
@@ -64,6 +62,8 @@ outputs:
       script:
         file: build-output.sh
     requirements:
+      build:
+        - ${{ stdlib('c') }}
       host:
         - ${{ pin_subpackage('libtlsh', exact=True) }}
       run:
@@ -91,18 +91,25 @@ outputs:
         - cmake <4
         - ninja
       host:
-        - ${{ pin_subpackage('libtlsh', exact=True) }}
         - pip
         - python
         - setuptools
       run:
-        - ${{ pin_subpackage('libtlsh', exact=True) }}
         - python
+      run_constraints:
+        - ${{ pin_subpackage('libtlsh', exact=True) }}
     tests:
       - python:
-          imports:
-            - tlsh
+          imports: tlsh
           pip_check: true
+      - requirements:
+          run:
+            - tlsh-tools
+            - pytest
+        script:
+          file: run_test.py
+    about:
+      homepage: https://pypi.org/project/py-tlsh
 
 about:
   license: Apache-2.0 OR BSD-3-Clause
@@ -110,16 +117,15 @@ about:
     - src/LICENSE
     - src/NOTICE.txt
   summary: TLSH is a fuzzy matching library.
-  description: |
+  homepage: https://github.com/trendmicro/tlsh
+  repository: https://github.com/trendmicro/tlsh
+  description: |-
     Given a byte stream with a minimum length of 50 bytes TLSH generates a
     hash value which can be used for similarity comparisons. Similar objects
     will have similar hash values which allows for the detection of similar
     objects by comparing their hash values. Note that the byte stream should
     have a sufficient amount of complexity. For example, a byte stream of
     identical bytes will not generate a hash value.
-
-
-  homepage: https://github.com/trendmicro/tlsh
 
 extra:
   recipe-maintainers:

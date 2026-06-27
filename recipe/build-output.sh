@@ -18,13 +18,9 @@ elif [[ "${PKG_NAME}" == "python-tlsh" ]]; then
 
     cd py
 
-    "${PYTHON}" setup.py bdist_wheel \
-        --dist-dir=dist
-    "${PYTHON}" -m pip install \
-        --find-links=dist \
+    "${PYTHON}" -m pip install . \
+        -vv \
         --no-deps \
         --ignore-installed \
-        --no-cache-dir \
-        -vvv \
-        tlsh
+        --disable-pip-version-check
 fi
