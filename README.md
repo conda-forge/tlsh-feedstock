@@ -1,13 +1,19 @@
-About tlsh-feedstock
-====================
+About libtlsh-feedstock
+=======================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tlsh-feedstock/blob/main/LICENSE.txt)
+
+
+About libtlsh
+-------------
 
 Home: https://github.com/trendmicro/tlsh
 
 Package license: Apache-2.0 OR BSD-3-Clause
 
 Summary: TLSH is a fuzzy matching library.
+
+Development: https://github.com/trendmicro/tlsh
 
 Given a byte stream with a minimum length of 50 bytes TLSH generates a
 hash value which can be used for similarity comparisons. Similar objects
@@ -16,12 +22,36 @@ objects by comparing their hash values. Note that the byte stream should
 have a sufficient amount of complexity. For example, a byte stream of
 identical bytes will not generate a hash value.
 
+About python-tlsh
+-----------------
+
+Home: https://pypi.org/project/py-tlsh
+
+Package license: Apache-2.0 OR BSD-3-Clause
+
+Summary: TLSH is a fuzzy matching library.
+
+Development: https://github.com/trendmicro/tlsh
+
+Given a byte stream with a minimum length of 50 bytes TLSH generates a
+hash value which can be used for similarity comparisons. Similar objects
+will have similar hash values which allows for the detection of similar
+objects by comparing their hash values. Note that the byte stream should
+have a sufficient amount of complexity. For example, a byte stream of
+identical bytes will not generate a hash value.
 
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/tlsh-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/tlsh-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -35,73 +65,17 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_python3.10.____cpython</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_python3.11.____cpython</td>
+              <td>osx_arm64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6656&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.14.____cp314" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/tlsh-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -121,10 +95,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-python--tlsh-green.svg)](https://anaconda.org/conda-forge/python-tlsh) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/python-tlsh.svg)](https://anaconda.org/conda-forge/python-tlsh) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/python-tlsh.svg)](https://anaconda.org/conda-forge/python-tlsh) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/python-tlsh.svg)](https://anaconda.org/conda-forge/python-tlsh) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-tlsh--tools-green.svg)](https://anaconda.org/conda-forge/tlsh-tools) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/tlsh-tools.svg)](https://anaconda.org/conda-forge/tlsh-tools) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/tlsh-tools.svg)](https://anaconda.org/conda-forge/tlsh-tools) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/tlsh-tools.svg)](https://anaconda.org/conda-forge/tlsh-tools) |
 
-Installing tlsh
-===============
+Installing libtlsh
+==================
 
-Installing `tlsh` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `libtlsh` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -210,17 +184,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating tlsh-feedstock
-=======================
+Updating libtlsh-feedstock
+==========================
 
-If you would like to improve the tlsh recipe or build a new
+If you would like to improve the libtlsh recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/tlsh-feedstock are
+Note that all branches in the conda-forge/libtlsh-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks, and branches in the main repository should only be used to
 build distinct package versions.
