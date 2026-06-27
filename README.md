@@ -3,11 +3,35 @@ About libtlsh-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/tlsh-feedstock/blob/main/LICENSE.txt)
 
+
+About libtlsh
+-------------
+
 Home: https://github.com/trendmicro/tlsh
 
 Package license: Apache-2.0 OR BSD-3-Clause
 
 Summary: TLSH is a fuzzy matching library.
+
+Development: https://github.com/trendmicro/tlsh
+
+Given a byte stream with a minimum length of 50 bytes TLSH generates a
+hash value which can be used for similarity comparisons. Similar objects
+will have similar hash values which allows for the detection of similar
+objects by comparing their hash values. Note that the byte stream should
+have a sufficient amount of complexity. For example, a byte stream of
+identical bytes will not generate a hash value.
+
+About python-tlsh
+-----------------
+
+Home: https://pypi.org/project/py-tlsh
+
+Package license: Apache-2.0 OR BSD-3-Clause
+
+Summary: TLSH is a fuzzy matching library.
+
+Development: https://github.com/trendmicro/tlsh
 
 Given a byte stream with a minimum length of 50 bytes TLSH generates a
 hash value which can be used for similarity comparisons. Similar objects
