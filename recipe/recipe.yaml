@@ -2,6 +2,7 @@ schema_version: 1
 
 context:
   version: "5.0.0"
+  version_major: ${{ (version | split("."))[0] }}
 
 recipe:
   name: tlsh
@@ -53,9 +54,14 @@ outputs:
           lib:
             - libtlsh
             - libtlsh.a
-            - libtlsh.so
-            - libtlsh.so.${{ (version | split("."))[0] }}
-            - libtlsh.so.${{ version }}
+            - if: linux
+              then:
+                - libtlsh.so.${{ version_major }}
+                - libtlsh.so.${{ version }}
+            - if: osx
+              then:
+                - libtlsh.${{ version_major }}.dylib
+                - libtlsh.${{ version }}.dylib
           strict: true
 
   - inherit: staging
